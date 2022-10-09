@@ -169,6 +169,11 @@ try {
    
   } 
   
+  for(int i=0; i < num_files; ++i)
+  {
+    ifgfile[i].close();
+  }
+  delete[] ifgfile;
   }
   catch( char * str ) {
      cout << str << "\n";

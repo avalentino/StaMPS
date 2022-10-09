@@ -239,6 +239,8 @@ try {
      
   }
   
+  delete[] buffer;
+  delete[] maskline;
   ampfiles.close();
   parmfile.close();
   

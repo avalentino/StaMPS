@@ -546,6 +546,11 @@ try {
         //cout << pscid  << " selected PS \n";
         //cout << D_thresh_sq << "D_thresh_sq \n";
   }  
+  
+  delete[] buffer;
+  delete[] masterampline;
+  delete[] maskline;
+  delete[] calib_factor;
   ijfile.close();
   jifile.close();
   ijfile0.close();
@@ -559,7 +564,12 @@ try {
   if (masteramp_exists==1) 
   {	  
       masterampfile.close();
-  }    
+  }
+  for (int i=0;i<num_files;++i)
+  {
+    ampfile[i].close();
+  }
+  delete[] ampfile;
   }
   catch( char * str ) {
      cout << str << "\n";
