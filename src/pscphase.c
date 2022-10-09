@@ -80,7 +80,7 @@ try {
       throw "";
   }
 
-  ofstream outfile(outfilename,ios::out);
+  ofstream outfile(outfilename,ios::out|ios::binary);
   if (! outfile.is_open()) 
   {	  
       cout << "Error opening file " << outfilename << endl; 
