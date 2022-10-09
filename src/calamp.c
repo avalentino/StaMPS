@@ -47,6 +47,8 @@ int cshortswap( complex<short>* f )
   b2[2] = b[3];
   b2[3] = b[2];
   f[0]=f2;
+
+  return 0;
 }
 
 int cfloatswap( complex<float>* f )
@@ -63,6 +65,8 @@ int cfloatswap( complex<float>* f )
   b2[6] = b[5];
   b2[7] = b[4];
   f[0]=f2;
+
+  return 0;
 }
 
 int main(int  argc, char *argv[] ) {   // [MA]  long --> int for gcc 4.3.x
@@ -119,11 +123,13 @@ try {
   }   
 
   ifstream maskfile (maskfilename, ios::in);
+  /*
   char mask_exists = 0;
   if (maskfile.is_open())
   {
       mask_exists=1;
   }
+  */
 
   char* maskline = new char[width];
   for (register int x=0; x<width; x++) // for each pixel in range
@@ -166,7 +172,7 @@ try {
       throw "";
     }
 
-    int i=0; 
+    //int i=0; 
     double sumamp=0; 
     double amp_pixel=0;
     long unsigned int nof_pixels=0;

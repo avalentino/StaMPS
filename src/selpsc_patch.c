@@ -57,6 +57,8 @@ int cshortswap( complex<short>* f )
   b2[2] = b[3];
   b2[3] = b[2];
   f[0]=f2;
+
+  return 0;
 }
 
 int shortswap( short* f )
@@ -67,6 +69,8 @@ int shortswap( short* f )
   b2[0] = b[1];
   b2[1] = b[0];
   f[0]=f2;
+
+  return 0;
 }
 
 int cfloatswap( complex<float>* f )
@@ -83,6 +87,8 @@ int cfloatswap( complex<float>* f )
   b2[6] = b[5];
   b2[7] = b[4];
   f[0]=f2;
+
+  return 0;
 }
 
 int floatswap( float* f )
@@ -95,6 +101,8 @@ int floatswap( float* f )
   b2[2] = b[1];
   b2[3] = b[0];
   f[0]=f2;
+
+  return 0;
 }
 
 int longswap( int32_t* f )
@@ -107,6 +115,8 @@ int longswap( int32_t* f )
   b2[2] = b[1];
   b2[3] = b[0];
   f[0]=f2;
+
+  return 0;
 }
 
 //int main(long  argc, char *argv[] ) {    
@@ -296,7 +306,7 @@ try {
 
   const int linebytes = width*sizeofelement*2;  // bytes per line in amplitude files (SLCs)
   const int patch_linebytes =  patch_width*sizeofelement*2;
-  const int patch_amp_linebytes =  patch_width*sizeofelement;
+  //const int patch_amp_linebytes =  patch_width*sizeofelement;
 
   filebuf *pbuf;
   long size;
@@ -478,8 +488,8 @@ try {
         {
       //Amplitude disperion^2 
 	    register float D_sq=num_files*sumampsq/(sumamp*sumamp) - 1; // var/mean^2
-        if (pick_higher==0 && D_sq<D_thresh_sq  ||                 \
-            pick_higher==1 && D_sq>=D_thresh_sq) 
+        if ((pick_higher==0 && D_sq<D_thresh_sq)  ||                 \
+            (pick_higher==1 && D_sq>=D_thresh_sq)) 
 	      {
             if (amp_0 != 1)
              {

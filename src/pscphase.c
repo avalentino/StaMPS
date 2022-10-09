@@ -87,7 +87,7 @@ try {
       throw "";
   }    
 
-  char line[256];
+  // char line[256];
   int num_files = 0;
   int width = 0;
   char ifgfilename[256];
@@ -107,7 +107,7 @@ try {
   parmfile.seekg(savepos);
 
   ifstream* ifgfile   = new ifstream[num_files];
-  float* calib_factor = new float[num_files];
+  // float* calib_factor = new float[num_files];
       
   for (int i=0; i<num_files; ++i) 
   {
@@ -141,15 +141,15 @@ try {
   psfile >> pscid >> y >> x;
   psfile.getline(buffer,1000);
 
-  long xyaddr_save = 0;
+  // long xyaddr_save = 0;
 
   for ( int i=0; i<num_files; i++) 
   {
     while (! psfile.eof() ) 
     {
       long xyaddr = (y*width+x)*sizeof(float)*2;
-      long xyaddr_diff = xyaddr - xyaddr_save;
-      xyaddr_save = xyaddr;
+      // long xyaddr_diff = xyaddr - xyaddr_save;
+      // xyaddr_save = xyaddr;
 
       ifgfile[i].seekg(xyaddr, ios::beg);	    
       ifgfile[i].read (ifg_pixel, sizeof(float)*2);

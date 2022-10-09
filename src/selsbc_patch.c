@@ -58,6 +58,8 @@ int cshortswap( complex<short>* f )
   b2[2] = b[3];
   b2[3] = b[2];
   f[0]=f2;
+
+  return 0;
 }
 
 int cfloatswap( complex<float>* f )
@@ -74,6 +76,8 @@ int cfloatswap( complex<float>* f )
   b2[6] = b[5];
   b2[7] = b[4];
   f[0]=f2;
+
+  return 0;
 }
 int longswap( int32_t* f )
 {
@@ -85,6 +89,8 @@ int longswap( int32_t* f )
   b2[2] = b[1];
   b2[3] = b[0];
   f[0]=f2;
+
+  return 0;
 }
 
 //int main(long  argc, char *argv[] ) {    
@@ -170,7 +176,7 @@ try {
 
   parmfile >> D_thresh;
   cout << "dispersion threshold = " << D_thresh << "\n";
-  float D_thresh_sq = D_thresh*D_thresh;
+  // float D_thresh_sq = D_thresh*D_thresh;
   if (D_thresh<0) { 
       pick_higher=1;
   }
@@ -232,7 +238,7 @@ try {
   patchfile >> az_end;
   patchfile.close();
 
-  const int sizeoffloat=4; 
+  // const int sizeoffloat=4; 
   int sizeofelement; 
   if (prec[0]=='s')
   {
@@ -380,8 +386,8 @@ try {
         if (maskline[j*width+x]==0 && sumamp > 0)
         { 
 	    float D_a=sqrt(sumampdiffsq/(num_files/2))/(sumamp/num_files); 
-            if (pick_higher==0 && D_a<D_thresh ||                 \
-                pick_higher==1 && D_a>=D_thresh) 
+            if ((pick_higher==0 && D_a<D_thresh) ||                 \
+                (pick_higher==1 && D_a>=D_thresh)) 
 	    {
                ++pscid;
 

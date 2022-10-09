@@ -95,7 +95,7 @@ try {
       throw "";
   }    
 
-  char line[256];
+  // char line[256];
   int num_files = 1;
   int width = 0;
   char ifgfilename[256];
@@ -105,7 +105,7 @@ try {
   parmfile.getline(ifgfilename,256);
 
   ifstream* ifgfile   = new ifstream[num_files];
-  float* calib_factor = new float[num_files];
+  // float* calib_factor = new float[num_files];
       
   parmfile >> ifgfilename;
   ifgfile[0].open (ifgfilename, ios::in|ios::binary);
@@ -148,7 +148,7 @@ try {
   psfile >> pscid >> y >> x;
   psfile.getline(buffer,1000);
 
-  long xyaddr_save = 0;
+  // long xyaddr_save = 0;
 
   while (! psfile.eof() ) 
   //for (int dummyi=0; dummyi<100; dummyi++) 
