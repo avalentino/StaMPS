@@ -38,6 +38,7 @@ set AUT = "Andy Hooper, August 2017"
 set MATLAB = "octave --no-gui --no-window-system --path $STAMPS/matlab"
 # set MATLAB = "-nojvm -nosplash -nodisplay"
 echo "$PRG $AUT"
+date
 echo " "
 set nonomatch
 
@@ -146,7 +147,10 @@ else
     \ls $datadir/*slc/*.*slc >> $WORKDIR/calamp.in
     set selfile = $WORKDIR/selpsc.in
 endif
+date
+echo "calamp calamp.in $width $WORKDIR/calamp.out f 1 $maskfile"
 calamp calamp.in $width $WORKDIR/calamp.out f 1 $maskfile
+date
 
 # Set up patches
 echo $da_thresh > $selfile
@@ -227,8 +231,12 @@ if ( $status == 0 ) then
   echo $width > psclonlat.in
   \ls -1 $datadir/geo/*.lon | head -1 >> psclonlat.in
   \ls -1 $datadir/geo/*.lat |head -1 >> psclonlat.in
+  date
+  echo "mt_extract_cands 1 1 1 1 f 1 $maskfile"
   mt_extract_cands 1 1 1 1 f 1 $maskfile
+  date
 else
     echo "lon file does not exist"
     exit 3
 endif
+date
