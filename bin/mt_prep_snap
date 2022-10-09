@@ -35,6 +35,8 @@
 ### Initial welcome
 set PRG = `basename "$0"`
 set AUT = "Andy Hooper, August 2017"
+set MATLAB = "octave --no-gui --no-window-system --path $STAMPS/matlab"
+# set MATLAB = "-nojvm -nosplash -nodisplay"
 echo "$PRG $AUT"
 echo " "
 set nonomatch
@@ -126,9 +128,9 @@ set width    = `gawk '/range_samples/ {print $2}'     < $RSC`
 
 echo "snap" > processor.txt
 if ($SB_FLAG == 1) then
-    matlab -nojvm -nosplash -nodisplay < $STAMPS/matlab/sb_parms_initial.m > sb_parms_initial.log
+    $MATLAB < $STAMPS/matlab/sb_parms_initial.m > sb_parms_initial.log
 else
-    matlab -nojvm -nosplash -nodisplay < $STAMPS/matlab/ps_parms_initial.m > ps_parms_initial.log
+    $MATLAB < $STAMPS/matlab/ps_parms_initial.m > ps_parms_initial.log
 endif
 
 echo $width > $WORKDIR/width.txt
